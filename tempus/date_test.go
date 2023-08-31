@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/nickwells/tempus.mod/tempus"
-	"github.com/nickwells/testhelper.mod/testhelper"
+	"github.com/nickwells/testhelper.mod/v2/testhelper"
 )
 
 func TestIsLeapYear(t *testing.T) {
