@@ -1,6 +1,6 @@
 module github.com/nickwells/tempus.mod
 
-go 1.19
+go 1.21
 
 require github.com/nickwells/testhelper.mod/v2 v2.3.0
 
