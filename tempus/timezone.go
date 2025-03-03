@@ -57,5 +57,6 @@ func TimezoneNames() []string {
 	for _, f := range r.File {
 		zones = append(zones, f.Name)
 	}
+
 	return zones
 }

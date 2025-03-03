@@ -39,6 +39,7 @@ func TestIsLeapYear(t *testing.T) {
 	for _, tc := range testCases {
 		if tempus.IsLeapYear(tc.dt) != tc.exp {
 			t.Log(tc.IDStr())
+
 			if tc.exp {
 				t.Errorf("\t: %s should be a leap year but is not\n",
 					tc.dt.Format("Mon 2006 Jan 02"))

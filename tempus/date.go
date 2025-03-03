@@ -9,6 +9,7 @@ func DaysInYear(t time.Time) int {
 	if IsLeapYear(t) {
 		days++
 	}
+
 	return days
 }
 
@@ -21,23 +22,28 @@ func DaysInMonth(t time.Time) int {
 	}
 	month := t.Month()
 	days := daysInMonth[month]
+
 	if month == time.February && IsLeapYear(t) {
-		days++
+		days++ // February has an extra day in a leap year
 	}
+
 	return days
 }
 
 // IsLeapYear returns true if the given year is a leap year.
 func IsLeapYear(t time.Time) bool {
 	y := t.Year()
+
 	// years divisible by 400 (such as 2000) are leap years
 	if y%400 == 0 {
 		return true
 	}
-	// years divisible by 4 but not 100 are leap years
+
+	// other years divisible by 4 but not 100 are leap years
 	if y%100 != 0 && y%4 == 0 {
 		return true
 	}
+
 	// other years are not leap years
 	return false
 }
