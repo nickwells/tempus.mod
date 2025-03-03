@@ -3,10 +3,24 @@ package tempus
 import (
 	"archive/zip"
 	"os"
-	"runtime"
+	"os/exec"
 )
 
-var zoneInfoFile = runtime.GOROOT() + "/lib/time/zoneinfo.zip"
+var zoneInfoFile string
+
+func init() {
+	goPath, err := exec.LookPath("go")
+	if err != nil {
+		return
+	}
+
+	out, err := exec.Command(goPath, "env", "GOROOT").Output()
+	if err != nil {
+		return
+	}
+
+	zoneInfoFile = string(out) + "/lib/time/zoneinfo.zip"
+}
 
 // Go1.21 has 597 timezone names
 const tzCount = 597
@@ -17,13 +31,18 @@ func HasTimezoneInfo() bool {
 	if err != nil {
 		return false
 	}
+
 	if fi.Size() == 0 {
 		return false
 	}
+
 	return true
 }
 
-// TimezoneNames returns the list of names of valid timezones
+// TimezoneNames returns the list of names of valid timezones. It returns a
+// nil slice if there are any problems finding the timezones. Problems
+// include the timezones file not existing, being empty or the go executable
+// not being in the PATH (so GOROOT cannot be determined)
 func TimezoneNames() []string {
 	if !HasTimezoneInfo() {
 		return nil
