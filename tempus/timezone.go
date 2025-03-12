@@ -4,6 +4,8 @@ import (
 	"archive/zip"
 	"os"
 	"os/exec"
+	"path/filepath"
+	"strings"
 )
 
 var zoneInfoFile string
@@ -19,7 +21,10 @@ func init() {
 		return
 	}
 
-	zoneInfoFile = string(out) + "/lib/time/zoneinfo.zip"
+	zoneInfoFile = filepath.Join(strings.TrimSpace(string(out)),
+		"lib",
+		"time",
+		"zoneinfo.zip")
 }
 
 // Go1.21 has 597 timezone names
