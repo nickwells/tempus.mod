@@ -16,7 +16,7 @@ func init() {
 		return
 	}
 
-	out, err := exec.Command(goPath, "env", "GOROOT").Output()
+	out, err := exec.Command(goPath, "env", "GOROOT").Output() //nolint:gosec
 	if err != nil {
 		return
 	}

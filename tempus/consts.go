@@ -1,5 +1,6 @@
 package tempus
 
+// These provide named values for various time-related constants
 const (
 	SecondsPerMinute = 60
 	MinutesPerHour   = 60

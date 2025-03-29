@@ -1,5 +1,5 @@
 /*
-Tempus provides some useful time-related functions that are not
-found in the standard time package.
+Package tempus provides some useful time-related functions and constants
+that are not found in the standard time package.
 */
 package tempus
