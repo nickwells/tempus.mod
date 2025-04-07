@@ -9,6 +9,6 @@ import (
 func TestTimezoneNames(t *testing.T) {
 	if HasTimezoneInfo() {
 		names := TimezoneNames()
-		testhelper.DiffInt[int](t, "TimezoneCount", "", len(names), tzCount)
+		testhelper.DiffInt(t, "TimezoneCount", "", len(names), tzCount)
 	}
 }
