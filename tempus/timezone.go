@@ -28,7 +28,8 @@ func init() {
 }
 
 // Go1.21 has 597 timezone names
-const tzCount = 597
+// Go1.25 has 598 timezone names
+const tzCount = 598
 
 // HasTimezoneInfo returns true if the timezone info file can be found
 func HasTimezoneInfo() bool {
